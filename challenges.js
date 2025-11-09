@@ -16,12 +16,27 @@ User Input: 10
 Output: "The late fee is $2.50."
 */
 
-// ✍️ ✍️ ✍️ ✍️ Write the function here ✍️ ✍️ ✍️ ✍️
+// ✍️ ✍️ ✍️ ✍️ Write the function here ✍️ ✍️ ✍️ 
+
+
+// function calculateLateFee(){
+// let daysLate = prompt("fadlan gali Tirada malimaha buugu dahay")
+// let fee = daysLate * 0.25;
+// console.log("malimaha buugu habsamay $" + fee.toFixed(2) + ".");
+// }
+// calculateLateFee();
 
 
 
 // Extra Task:
 // - Convert the function into a function expression.
+const calculateLateFee = function() {
+  let daysLate = prompt("Fadlan geli tirada maalmaha uu buuggu daahay:");
+  let fee = daysLate * 0.25;
+  console.log("malimaha buugu habsamays $" + fee.toFixed(2) + ".");
+};
+
+calculateLateFee();
 
 
 
@@ -46,9 +61,44 @@ Output: "Red: You are passionate and bold."
 // ✍️ ✍️ ✍️ ✍️ Write the function here ✍️ ✍️ ✍️ ✍️
 
 
+// function findColorMeaning() {
+//   let color = prompt("Midabka aad jeceshahay waa kee?").toLowerCase();
+//   if (color === "blue") {
+//     console.log("Buluug: waxaad jeceshahay deganaanta iyo nabadda.");
+//   } else if (color === "casaan") {
+//     console.log("Casaan: waxaad tahay qof xamaasad leh oo geesi ah.");
+//   } else if (color === "cagaar") {
+//     console.log("Cagaar: waxaad ku xiran tahay dabeecadda/natuurta.");
+//   } else if (color === "buluug") {
+//     console.log("buluug: waxaad faafisaa farxad iyo tamar.");
+//   } else {
+//     console.log("Taasi waa doorasho gaar ah!");
+//   }
+// }
+
+// findColorMeaning();
+
+
+
 
 // Extra Task:
 // - Rewrite the function using an arrow function.
+
+const findColorMeaning = () => {
+  let color = prompt("Midabka aad jeceshahay waa kee?").toLowerCase();
+    if (color === "blue") {
+    console.log("Buluug: waxaad jeceshahay deganaanta iyo nabadda.");
+  } else if (color === "casaan") {
+    console.log("Casaan: waxaad tahay qof xamaasad leh oo geesi ah.");
+  } else if (color === "cagaar") {
+    console.log("Cagaar: waxaad ku xiran tahay dabeecadda/natuurta.");
+  } else if (color === "buluug") {
+    console.log("buluug: waxaad faafisaa farxad iyo tamar.");
+  } else {
+    console.log("Taasi waa doorasho gaar ah!");
+  }
+}
+findColorMeaning();
 
 
 
@@ -69,9 +119,22 @@ Output: "Case #12345: John Doe's case is now logged."
 // ✍️ ✍️ ✍️ ✍️ Write the function here ✍️ ✍️ ✍️ ✍️
 
 
+// function logCase(clientName, caseNumber) {
+//     console.log(`Case #${caseNumber}: ${clientName}'s uu xidhmay.`);
+// }
+// logCase("mascud", 12345);
+// logCase("duse", 67890);
+
+
+
 
 // Extra Task:
 // - Rewrite the function as an arrow function.
+const logCase = (clientName, caseNumber) => {
+    console.log(`Case #${caseNumber}: ${clientName}'s uu xidhmay.`);
+}
+
+logCase("mascud", 12345);
 
 
 /*
@@ -95,10 +158,33 @@ Output: "Amina is present."
 // ✍️ ✍️ ✍️ ✍️ Write the function here ✍️ ✍️ ✍️ ✍️
 
 
+// function markAttendance(studentName, isPresent) {
+//     if (isPresent) {
+//         console.log(`${studentName} is present.`);
+//     } else {
+//         console.log(`${studentName} is absent.`);
+//     }
+// }
+
+// markAttendance("Amina", true);   
+// markAttendance("Ahmed", false);  
+
+
+
+
 
 // Extra Task:
 // - Convert the function into a function expression.
 
+const markAttendance = function(studentName, isPresent) {
+    if (isPresent) {
+        console.log(`${studentName} uu jooga.`);
+    } else {
+        console.log(`${studentName} uu maqanyahay.`);
+    }
+}
+markAttendance("Amina", true);  
+markAttendance("Ahmed", false);
 
 
 /*
@@ -135,3 +221,33 @@ Extra Credit:
 - Extend the program to accept multiple students' names and scores and generate a report for each student using a loop.
 - Use an arrow function for at least one of the functions.
 */
+
+const calculateAverage = (score1, score2, score3) => {
+    return (score1 + score2 + score3) / 3;
+}
+
+function determineGrade(average) {
+    if (average >= 90) {
+        return "A";
+    } else if (average >= 80) {
+        return "B";
+    } else if (average >= 70) {
+        return "C";
+    } else {
+        return "F";
+    }
+}
+
+function generateReport(studentName, score1, score2, score3) {
+    const average = calculateAverage(score1, score2, score3);
+    const grade = determineGrade(average);
+    return `${studentName} - Average Score: ${average.toFixed(2)}, Grade: ${grade}`;
+}
+
+const studentName = prompt("magacaaga gali:");
+const score1 = Number(prompt("Enter first test score:"));
+const score2 = Number(prompt("Enter second test score:"));
+const score3 = Number(prompt("Enter third test score:"));
+
+const report = generateReport(studentName, score1, score2, score3);
+console.log(report);
